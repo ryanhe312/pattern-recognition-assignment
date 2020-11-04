@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{lecun1998gradient}
+Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.
+\newblock Gradient-based learning applied to document recognition.
+\newblock {\em Proceedings of the IEEE}, 86(11):2278--2324, 1998.
+
+\bibitem{zhou2016machine}
+Z.H. Zhou.
+\newblock {\em Machine Learning}.
+\newblock Tsinghua University Press, 2016.
+
+\end{thebibliography}

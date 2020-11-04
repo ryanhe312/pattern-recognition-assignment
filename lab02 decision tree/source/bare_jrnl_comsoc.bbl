@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{quinlan1986induction}
+J.~Ross Quinlan.
+\newblock Induction of decision trees.
+\newblock {\em Machine learning}, 1(1):81--106, 1986.
+
+\bibitem{street1993nuclear}
+W~Nick Street, William~H Wolberg, and Olvi~L Mangasarian.
+\newblock Nuclear feature extraction for breast tumor diagnosis.
+\newblock In {\em Biomedical image processing and biomedical visualization},
+  volume 1905, pages 861--870. International Society for Optics and Photonics,
+  1993.
+
+\bibitem{zhou2016machine}
+Z.H. Zhou.
+\newblock {\em Machine Learning}.
+\newblock Tsinghua University Press, 2016.
+
+\end{thebibliography}

@@ -1,0 +1,554 @@
+
+%% bare_jrnl_comsoc.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% Communications Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal,comsoc]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal,comsoc]{../sty/IEEEtran}
+
+
+\usepackage[T1]{fontenc}% optional T1 font encoding
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\usepackage{graphicx}
+\graphicspath{{../img/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\ifCLASSINFOpdf
+  %\usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  %\graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  %\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  %\usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  %\graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  %\DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+% Do NOT use the amsbsy package under comsoc mode as that feature is
+% already built into the Times Math font (newtxmath, mathtime, etc.).
+% 
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+% Select a Times math font under comsoc mode or else one will automatically
+% be selected for you at the document start. This is required as Communications
+% Society journals use a Times, not Computer Modern, math font.
+\usepackage[cmintegrals]{newtxmath}
+% The freely available newtxmath package was written by Michael Sharpe and
+% provides a feature rich Times math font. The cmintegrals option, which is
+% the default under IEEEtran, is needed to get the correct style integral
+% symbols used in Communications Society journals. Version 1.451, July 28,
+% 2015 or later is recommended. Also, do *not* load the newtxtext.sty package
+% as doing so would alter the main text font.
+% http://www.ctan.org/pkg/newtx
+%
+% Alternatively, you can use the MathTime commercial fonts if you have them
+% installed on your system:
+%\usepackage{mtpro2}
+%\usepackage{mt11p}
+%\usepackage{mathtime}
+
+
+%\usepackage{bm}
+% The bm.sty package was written by David Carlisle and Frank Mittelbach.
+% This package provides a \bm{} to produce bold math symbols.
+% http://www.ctan.org/pkg/bm
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+%\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily,
+	breaklines=true,
+	tabsize=2
+} 
+
+
+
+\begin{document}
+
+\title{2020 Pattern Recognition and Machine Learning\\Technical Report}
+
+\author{Ruian He,~16307110216,}
+
+\markboth{2020 Pattern Recognition and Machine Learning}{}
+
+\maketitle
+
+\section{TASK DESCRIPTION}
+
+\IEEEPARstart{I}{mplementation} of the k-nearest neighbor (k-NN) algorithm by yourself and Using the k-NN for classification based on MNIST dataset available  at mnist website\footnote{http://yann.lecun.com/exdb/mnist/.}.
+
+
+\section{DATA DESCRIPTION}
+
+The MNIST database of handwritten digits, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image. \cite{lecun1998gradient}
+
+
+The data is stored in a very simple file format designed for storing vectors and multidimensional matrices. 
+
+
+\subsection{Label File}
+
+The label file is like the following.The labels values are 0 to 9.
+
+
+\begin{table}[h]
+	\begin{tabular}{llll}
+[offset] &[type]  			&[value] 			&[description] \\
+0000     &32 bit integer  	&0x00000801(2049) 	&magic number 
+\\
+0004     &32 bit integer  	&60000           	&number of items\\ 
+
+0008     &unsigned byte   	&??               	&label\\ 
+
+0009     &unsigned byte   	&??               	&label\\ 
+
+...		 &...				&...				&... 
+\\
+xxxx     &unsigned byte   	&??               	&label
+
+	\end{tabular}
+\end{table}
+
+
+
+\subsection{Image File}
+
+And the image file is as followed.Pixels are organized row-wise. Pixel values are 0 to 255. 0 means background (white), 255 means foreground (black). 
+
+
+\begin{table}[h]
+	\begin{tabular}{llll}
+[offset] &[type]  			&[value] 			&[description] \\
+0000     &32 bit integer  	&0x00000803(2051) 	&magic number  
+\\
+0004     &32 bit integer  	&60000           	&number of images \\ 
+
+0008     &32 bit integer  	&28               	&number of rows\\ 
+
+0012     &32 bit integer  	&28               	&number of columns 
+\\
+0016     &unsigned byte   	&??               	&pixel\\ 
+
+0017     &unsigned byte   	&??               	&pixel\\ 
+
+...		 &...				&...				&... 
+\\
+xxxx     &unsigned byte   	&??               	&pixel
+
+	\end{tabular}
+\end{table}
+
+\section{DATA PREPROCESSING}
+
+First of all, we uncompress the \texttt{.gz} files to get ubyte files described as above. And we use struct module in python to extract the magic number, the image number, the row number and col number. Then we read $num*row*col$ numbers stored in unsigned bytes from the file which is the data. We can visualize using \texttt{matpoltlib} module.
+
+\begin{figure}[h]
+	\centering
+	\caption{Sample Digit}
+	\includegraphics[width=0.5\textwidth]{sample_digit}
+\end{figure}
+
+Because we will run knn algorithm for $row*col$ features in a image, we also need to flat the matrix of the image to get a vector of $row*col$ length.
+
+\section{ALGORITHM INTRODUCTION}
+
+\subsection{Algorithm principle}
+
+In pattern recognition, the k-nearest neighbors algorithm (k-NN) is a non-parametric method proposed by Thomas Cover used for classification and regression.In both cases, the input consists of the k closest training examples in the feature space. The output depends on whether k-NN is used for classification or regression.
+
+In k-NN classification, the output is a class membership. An object is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its k nearest neighbors (k is a positive integer, typically small). If k = 1, then the object is simply assigned to the class of that single nearest neighbor.\cite{zhou2016machine}
+
+For specified train set and test set, we can easily calculate the distance between test point and every point in training set.We know in a large space the distance $d_{ij}$ is as followed and $k$ is the index of features.
+
+$$
+\begin{aligned}
+d_{ij} 
+&= \sqrt{\sum_{k=1}^{784}(x_{i,k}-x_{j,k})^2} \\
+&=\sqrt{\sum_{k=1}^{784}(x_{i,k})^2+\sum_{k=1}^{784}(x_{j,k})^2-\sum_{k=1}^{784}2x_{i,k}x_{j,k}}\\
+\end{aligned}
+$$
+
+\subsection{Algorithm implementation}
+
+For training, we simply store all samples in the model. When predicting we calculate the distance between target point and all sample points. 
+
+We use \texttt{argsort} function in numpy module to find the points with the smallest k distance.The \texttt{argsort} function returns the indices that would sort an array. And use \texttt{argmax} and \texttt{bincount} function to find the label with the most votes from its neighbors.  The \texttt{bincount} fuction count number of occurrences of each value in array of non-negative in.ts
+
+
+\begin{lstlisting}[language=python,caption={K Nearest Neighbor}]
+class KNearestNeighbor(object):
+	def __init__(self):
+		self.pre_X = None
+		self.pre_dists = None
+	
+	def train(self, X, y):
+		self.X_train = X
+		self.y_train = y
+	
+	def predict(self, X, k=1):
+		if (self.pre_X != X).any():
+			self.pre_X = X
+			self.pre_dists = self.compute_distances(X)
+		return self.predict_labels(self.pre_dists, k=k)
+
+	def compute_distances(self, X):
+		num_test = X.shape[0]
+		num_train = self.X_train.shape[0]
+		dists = np.zeros((num_test, num_train))
+		dists = np.sqrt((self.X_train.dot(X.T)*(-2)+np.sum(np.square(X),axis=1)).T+np.sum(np.square(self.X_train),axis=1))
+		return dists
+
+	def predict_labels(self, dists, k=1):
+		num_test = dists.shape[0]
+		y_pred = np.zeros(num_test)
+		for i in range(num_test):
+			closest_y = []
+			closest_y=self.y_train[np.argsort(dists[i,:])][:k]
+			y_pred[i]=np.argmax(np.bincount(closest_y))
+		return y_pred
+\end{lstlisting}
+
+
+\section{EXPERIMENTAL RESULTS AND ANALYSIS}
+
+Now we get the model and the data,then we can start training and testing.We choosed different k for knn algorithm and run the prediction.The following graph shows the variation of accuracy between different k from 1 to 9.
+
+\begin{figure}[h]
+	\centering
+	\caption{Selection of k}
+	\includegraphics[width=0.5\textwidth]{selection_k}
+\end{figure}
+
+We can get from the graph that it’s not true that the bigger the k, the better the result. Among all the values of k, 3 get the best result and from 7 to 9 the accuracy is dropping as the k increases. Finally, the best result is the same as K-nearest-neighbors, Euclidean (L2) model with 3.09\% error rate from Kenneth Wilder, U. Chicago.\cite{lecun1998gradient}
+
+\bibliographystyle{plain}
+\bibliography{bare_jrnl_comsoc}
+
+\end{document}
+
+
