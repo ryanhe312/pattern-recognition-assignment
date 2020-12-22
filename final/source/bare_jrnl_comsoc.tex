@@ -1,0 +1,1022 @@
+
+%% bare_jrnl_comsoc.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% Communications Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal,comsoc]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal,comsoc]{../sty/IEEEtran}
+
+
+\usepackage[T1]{fontenc}% optional T1 font encoding
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\usepackage{graphicx}
+\graphicspath{{../img/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\ifCLASSINFOpdf
+  %\usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  %\graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  %\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  %\usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  %\graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  %\DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+% Do NOT use the amsbsy package under comsoc mode as that feature is
+% already built into the Times Math font (newtxmath, mathtime, etc.).
+% 
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+% Select a Times math font under comsoc mode or else one will automatically
+% be selected for you at the document start. This is required as Communications
+% Society journals use a Times, not Computer Modern, math font.
+\usepackage[cmintegrals]{newtxmath}
+% The freely available newtxmath package was written by Michael Sharpe and
+% provides a feature rich Times math font. The cmintegrals option, which is
+% the default under IEEEtran, is needed to get the correct style integral
+% symbols used in Communications Society journals. Version 1.451, July 28,
+% 2015 or later is recommended. Also, do *not* load the newtxtext.sty package
+% as doing so would alter the main text font.
+% http://www.ctan.org/pkg/newtx
+%
+% Alternatively, you can use the MathTime commercial fonts if you have them
+% installed on your system:
+%\usepackage{mtpro2}
+%\usepackage{mt11p}
+%\usepackage{mathtime}
+
+
+%\usepackage{bm}
+% The bm.sty package was written by David Carlisle and Frank Mittelbach.
+% This package provides a \bm{} to produce bold math symbols.
+% http://www.ctan.org/pkg/bm
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+%\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily,
+	breaklines=true,
+	tabsize=2
+} 
+\usepackage{cuted}
+
+
+\begin{document}
+
+\title{2020 Pattern Recognition and Machine Learning\\Technical Report}
+
+\author{Ruian He,~16307110216,}
+
+\markboth{2020 Pattern Recognition and Machine Learning}{}
+
+\maketitle
+
+\section{TASK DESCRIPTION}
+
+\IEEEPARstart{D}{esign} a proper convolutional neural network for the classification task based on the MINIST dataset.\footnote{http://yann.lecun.com/exdb/mnist/.}
+
+\section{DATA DESCRIPTION}
+
+The MNIST database of handwritten digits, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image. \cite{lecun1998gradient}
+
+
+The data is stored in a very simple file format designed for storing vectors and multidimensional matrices. 
+
+
+\subsection{Label File}
+
+The label file is like the following.The labels values are 0 to 9.
+
+
+\begin{table}[ht]
+	\begin{tabular}{llll}
+[offset] &[type]  			&[value] 			&[description] \\
+0000     &32 bit integer  	&0x00000801(2049) 	&magic number 
+\\
+0004     &32 bit integer  	&60000           	&number of items\\ 
+
+0008     &unsigned byte   	&??               	&label\\ 
+
+0009     &unsigned byte   	&??               	&label\\ 
+
+...		 &...				&...				&... 
+\\
+xxxx     &unsigned byte   	&??               	&label
+
+	\end{tabular}
+\end{table}
+
+
+
+\subsection{Image File}
+
+And the image file is as followed.Pixels are organized row-wise. Pixel values are 0 to 255. 0 means background (white), 255 means foreground (black). 
+
+
+\begin{table}[h]
+	\begin{tabular}{llll}
+[offset] &[type]  			&[value] 			&[description] \\
+0000     &32 bit integer  	&0x00000803(2051) 	&magic number  
+\\
+0004     &32 bit integer  	&60000           	&number of images \\ 
+
+0008     &32 bit integer  	&28               	&number of rows\\ 
+
+0012     &32 bit integer  	&28               	&number of columns 
+\\
+0016     &unsigned byte   	&??               	&pixel\\ 
+
+0017     &unsigned byte   	&??               	&pixel\\ 
+
+...		 &...				&...				&... 
+\\
+xxxx     &unsigned byte   	&??               	&pixel
+
+	\end{tabular}
+\end{table}
+
+\section{DATA PREPROCESSING}
+
+First of all, we uncompress the \texttt{.gz} files to get ubyte files described as above. And we use struct module in python to extract the magic number, the image number, the row number and col number. Then we read $num*row*col$ numbers stored in unsigned bytes from the file which is the data. We can visualize using \texttt{matpoltlib} module.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Sample Digit}
+	\includegraphics[width=0.4\textwidth]{sample_digit}
+\end{figure}
+
+We also can plot the average image for every digit, and get a general view over all training data.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Average Digit}
+	\includegraphics[width=0.4\textwidth]{average_digit}
+\end{figure}
+
+\section{ALGORITHM INTRODUCTION}
+
+\subsection{K-Nearest Neighbor}
+
+\subsubsection{Algorithm principle}
+
+In pattern recognition, the k-nearest neighbors algorithm (k-NN) is a non-parametric method proposed by Thomas Cover used for classification and regression.In both cases, the input consists of the k closest training examples in the feature space. The output depends on whether k-NN is used for classification or regression.
+
+
+In k-NN classification, the output is a class membership. An object is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its k nearest neighbors (k is a positive integer, typically small). If k = 1, then the object is simply assigned to the class of that single nearest neighbor.
+\cite{zhou2016machine}
+
+For specified train set and test set, we can easily calculate the distance between test point and every point in training set.We know in a large space the distance $d_{ij}$ is as followed and $k$ is the index of features.
+
+$$
+\begin{aligned}
+d_{ij} 
+&= \sqrt{\sum_{k=1}^{784}(x_{i,k}-x_{j,k})^2} \\
+&=\sqrt{\sum_{k=1}^{784}(x_{i,k})^2+\sum_{k=1}^{784}(x_{j,k})^2-\sum_{k=1}^{784}2x_{i,k}x_{j,k}}\\
+\end{aligned}
+$$
+
+\subsubsection{Algorithm implementation}
+
+For training, we simply store all samples in the model. When predicting we calculate the distance between target point and all sample points. 
+
+We use \texttt{argsort} function in numpy module to find the points with the smallest k distance.The \texttt{argsort} function returns the indices that would sort an array. And use \texttt{argmax} and \texttt{bincount} function to find the label with the most votes from its neighbors.  The \texttt{bincount} fuction count number of occurrences of each value in array of non-negative in.ts
+
+
+\begin{lstlisting}[language=python,caption={K Nearest Neighbor}]
+class KNearestNeighbor(object):
+	def __init__(self):
+		self.pre_X = None
+		self.pre_dists = None
+	
+	def train(self, X, y):
+		self.X_train = X
+		self.y_train = y
+	
+	def predict(self, X, k=1):
+		if (self.pre_X != X).any():
+			self.pre_X = X
+			self.pre_dists = self.compute_distances(X)
+		return self.predict_labels(self.pre_dists, k=k)
+
+	def compute_distances(self, X):
+		num_test = X.shape[0]
+		num_train = self.X_train.shape[0]
+		dists = np.zeros((num_test, num_train))
+		dists = np.sqrt((self.X_train.dot(X.T)*(-2)+np.sum(np.square(X),axis=1)).T+np.sum(np.square(self.X_train),axis=1))
+		return dists
+
+	def predict_labels(self, dists, k=1):
+		num_test = dists.shape[0]
+		y_pred = np.zeros(num_test)
+		for i in range(num_test):
+			closest_y = []
+			closest_y=self.y_train[np.argsort(dists[i,:])][:k]
+			y_pred[i]=np.argmax(np.bincount(closest_y))
+		return y_pred
+\end{lstlisting}
+
+\subsection{Bayesian Decision}
+
+\subsubsection{Algorithm principle}
+
+In statistics, Naive Bayes classifiers are a family of simple "probabilistic classifiers" based on applying Bayes' theorem with strong (naïve) independence assumptions between the features. 
+
+
+When dealing with continuous data, a typical assumption is that the continuous values associated with each class are distributed according to a normal (or Gaussian) distribution. 
+
+
+Next, we start to build Bayesian Decision model from scratch. As the data follow Gaussion distribution, we can calculate the miu and sigma of the Gaussion distribution for every digit and we know the prior for each digit from the training set. \cite{bishop2006pattern}
+
+
+Actually we can choose monovariable or multivariable gaussian distribution to describe. For the monovariable model, we assume that the features are irrelevant, and we can simply multiply the possibility $p_i(x_j)$ of every feature to get the likelihood $L_i$ of every digit.
+
+$$
+L_i=\prod_{i=1}^{784}p_i(x_j)=\prod_{i=1}^{784}\frac{1}{\sqrt{2\pi}\sigma_i}e^{-\frac{x_j-\mu_i}{2\sigma_i}}
+$$
+
+As for multivariable model, we use covariance to replace variance in monovariable model to describle the connection between features. And we only need to calculate one possibility for one point. For the $2\pi$ term is same among all likelihood, we can ignore it when calculating the posterior.
+
+$$
+L_i=p_i(x)=\frac{1}{(2\pi)^{\frac{n}{2}\left|\Sigma\right|^2}}e^{-\frac{1}{2}(x-\mu_i)^T\Sigma^{-1}(x-\mu_i)}
+$$
+
+When we predict, according to the bayesian theorem, we can get $posterior = likelihood * prior / evidence$ and use log on both sides. As we only need to compare the relative size, we can ignore that evidence which is the same for all posteriors. Then the final one to compare is $\log(prior) + \log(likelihood)$.The digit class which get the largest posterior will be the choice.
+
+\subsubsection{Algorithm implementation}
+
+When implementing the algorithm, we first extract the prior, mean, variance and covariance for each digit, and predict the label by calculating the likelihood of each digit using the above formulas.
+
+For some reason, the model is overfitting on test set, so we must add some hyperparameter to the variance in order to smooth the gaussian distribution we predicted. Just like $\sigma'=\sigma+smooth$.
+
+\begin{lstlisting}[language=python,caption={Bayesian Decision}]
+class BayesianDecision(object):
+	def __init__(self):
+		self.eps = 1e-5
+		self.smooth = 1000
+	
+	def train(self, X, y):
+		n_features = X.shape[1]
+		self.prior = np.bincount(y)/y.shape[0]
+		self.miu = np.zeros((10,n_features))
+		self.var = np.zeros((10,n_features))
+		self.cov = np.zeros((10,n_features,n_features))
+		for i in range(10):
+			select = X[np.where(y == i)]
+			self.miu[i] = np.mean(select,axis=0)
+			self.var[i] = np.var(select,axis=0) + self.smooth
+			self.cov[i] = np.cov(select.T) + self.smooth
+
+	def predict(self, X, mode):
+		likelihood = np.zeros((10,X.shape[0]))
+		for i in range(10):
+		diff = X - self.miu[i]
+		if mode == 'multi':
+			det_sqrt = np.sqrt(np.linalg.det(self.cov[i]))
+			likelihood[i] = np.log(np.exp(np.diag(-1/2*diff.dot(np.linalg.pinv(self.cov[i])).dot(diff.T)))/(det_sqrt+1e-5))
+		else:
+			possibility = np.exp(-1/2*np.square(diff)/self.var[i])/np.sqrt(self.var[i])
+
+		likelihood[i] = np.sum(np.log(possibility),axis=1)
+		posterior = likelihood + np.log(self.prior+self.eps)[:,np.newaxis]
+		return np.argmax(posterior,axis = 0)
+
+\end{lstlisting}
+
+
+
+\subsection{Support Vector Machine(SVM)}
+
+\subsubsection{Algorithm principle}
+
+The objective of the support vector machine algorithm is to find a hyperplane in an N-dimensional space(N — the number of features) that distinctly classifies the data points.\cite{zhou2016machine} We can define the hyperplane as follows:
+
+$$
+y = w^Tx+b
+$$
+
+To separate the two classes of data points, there are many possible hyperplanes that could be chosen. Our objective is to find a plane that has the maximum margin, i.e the maximum distance between data points of both classes. We define $\rho_i$ as the distance of point $i$ from the hyperplane.
+
+$$
+\rho_i = \frac1{||w||}\cdot y_i (w^Tx_i+b)
+$$
+
+We introduce $y_i$ in the distance because for positive examples $y_i = 1$ and we expect distance greater than a specific value $d_i = \frac1{||w||} (w^Tx_i+b) \ge \delta$ and for negative examples $y_i=-1$ and and we expect distance $d_i = \le -\delta$. We can unify this two presentations with $\rho_i$ which $y_i$ multiple $\frac1{||w||} (w^T x_i+b)$. And therefore $\rho_i \ge \delta$.
+
+
+\begin{figure}[ht]
+	\centering
+	\caption{Support Vector Machine}
+	\includegraphics[width=0.3\textwidth]{svm}
+\end{figure}
+
+Our purpose is to maximize the minimum of $\rho_i$, i.e $\delta$.
+
+
+$$
+\begin{aligned}
+	&\max_{w,b} \delta  \\
+	&s.t. \frac1{||w||}\cdot y_i (w^Tx_i+b) \ge \delta
+\end{aligned}
+$$
+
+Let $w'=\frac{w}{||w||\delta}$ and $b'=\frac{b}{||w||\delta}$, and our purpose becomes minimize $||w||$ so that $y_i(w'^Tx+b') \ge 1$. And that is equivalent to minimize $\frac12||w||^2$. 
+
+$$
+\begin{aligned}
+	&\min_{w,b} \frac12||w||^2  \\
+	&s.t. y_i (w^Tx_i+b) \ge 1
+\end{aligned}
+$$
+
+This is called the primal problem. It requires learning a large number of parameters in the w feature space.
+
+The dual problem results in some beneficial properties that will aid in the computation, including the use of Kernel functions to solve non-linearly separable data. 
+
+The dual problem requires learning only the number of support vectors, which can be much fewer than the number of feature space dimensions. The dual problem is found by constructing the Lagrange, by combining both the objective function and the equality constraint function. The Lagrange formulation is
+
+$$
+L(w,b,\alpha) = \frac12 ||w||^2 - \sum_{i=1}^n\alpha_i(y_i(w^Tx_i+b)-1)
+$$
+
+Here, we we define $w$ and $b$ as the primal variables and $\alpha_i$ as the dual
+variables. According to the Karush-Kuhn-Tucher(KKT) conditions, the formulation gets its optimal value when $\frac{\partial L(w,b,\alpha)}{\partial w}=\frac{\partial L(w,b,\alpha)}{\partial b}=0$ and must fulfill the following conditions:
+
+
+\begin{enumerate}	
+	\vspace{0.2cm}
+	\item $\alpha_i\ge 0$
+	\vspace{0.2cm}
+	\item $y_i(w^Tx_i+b)-1) \ge 0$
+	\vspace{0.2cm}
+	\item $\alpha_i(y_i(w^Tx_i+b)-1) = 0$
+	\vspace{0.5cm}
+\end{enumerate}  
+
+Then we can get $w = \sum_{i=1}^n\alpha_iy_ix_i$ and $\sum_{i=1}^n\alpha_iy_i=0$ from the above conditions.Finally, the formulation becomes like the following formula, and can be solved using Sequential Minimal Optimization(SMO) algorithm.
+
+$$
+\begin{aligned}
+	&\min_{\alpha_i} L(\alpha)= \frac12\sum_{i=1}^n\sum_{j=1}^ny_iy_j\alpha_i\alpha_j(x_i\cdot x_j) - \sum_{i=1}^n\alpha_i  \\
+	&s.t. \alpha_i \ge 0,\sum_{i=1}^ny_i\alpha_i=0
+\end{aligned}
+$$
+
+In this formulation, $(x_i\cdot x_j)$ stands for the linear kernel function. We can replace this with other non-linear kernels like Radial Basis Function(RBF) to get better representation of features.
+
+$$
+K(x_i,x_j)=\exp(-\frac{||x_i-x_j||^2}{2\sigma^2})
+$$
+
+Algorithms such as the Perceptron, Logistic Regression, and Support Vector Machines were designed for binary classification and do not natively support classification tasks with more than two classes.
+
+One approach for using binary classification algorithms for multi-classification problems is to split the multi-class classification dataset into multiple binary classification datasets and fit a binary classification model on each. Two different examples of this approach are the One-vs-Rest and One-vs-One strategies. 
+
+We choosed one-vs-One strategy which splits a multi-class classification into one binary classification problem per each pair of classes.
+
+\subsubsection{Algorithm implementation}
+
+The \texttt{sklearn} library provides the implementation of Support Vector Machine classifier, i.e SVC. And we can easily change the kernel function like \texttt{linear} and \texttt{rbf}.
+
+\begin{lstlisting}[language=python,caption={SVC}]
+from sklearn import svm
+from sklearn.metrics import accuracy_score,f1_score
+
+model = svm.SVC(kernel='linear')
+model.fit(X_train,y_train)
+
+y_pred = model.predict(X_test)
+print("The model accuracy is:",accuracy_score(y_test,y_pred),
+'f1_score is:',f1_score(y_test,y_pred,average='macro'))
+\end{lstlisting}
+
+\subsection{MultiLayer Perceptron Neural Network(MLPNN)}
+
+\subsubsection{Algorithm principle}
+
+A Multi-Layer Perceptron(MLP) can be viewed as a logistic regression classifier where the input is first transformed using a learnt non-linear transformation $\Phi$. This transformation projects the input data into a space where it becomes linearly separable. This intermediate layer is referred to as a hidden layer. A single hidden layer is sufficient to make MLPs a universal approximator.\cite{bishop2006pattern}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Multi-Layer Perceptron}
+	\includegraphics[width=0.3\textwidth]{mlp}
+\end{figure}
+
+For every hidden layer node $z_i$, there is a linear combination $w$ of the features from the input layer $x_i$ and a non-linear activation $\sigma$ function to introduce complex representations. It is the same as in output layer $y_i$.
+
+$$
+\begin{aligned}
+	z_i &= \sigma(net^{(1)}_i) &= \sigma(\sum_jw_{ij}^{(1)}x_j+b^1_i) \\ 
+	y_i &= \sigma(net^{(2)}_i) &= \sigma(\sum_jw_{ij}^{(2)}z_j+b^2_i)
+\end{aligned}
+$$
+
+Then, we calculate the loss function, the distance from predition $\hat{y}$ and the ground truth $y$, like cross entropy loss between a probability distribution $\hat{y}$ and a class truth $y$.
+
+$$
+\begin{aligned}
+L(\hat{y},y) = -\log(\frac{exp(\hat{y}[y])}{\sum_jexp(\hat{y}[j])})
+\end{aligned}
+$$
+
+Except for cross entropy loss, multiclass classification can also use multi-margin loss.
+
+$$
+\begin{aligned}
+	L(\hat{y},y) = \frac{\sum_i\max(0,\delta-\hat{y}[y]+\hat{y}[i])}{\text{num\_class}}
+\end{aligned}
+$$
+
+Finally, we perform backpropagation to use the loss gradient to update perceptron parameters, i.e computing the gradient for each weight and bias according to the chain rule. Take the cross entropy loss for example.
+
+$$
+\begin{aligned}
+	\frac{\partial L}{\partial y_i}& = \frac{\exp(y_i)}{\sum_i\exp(y_i)}\\
+	\frac{\partial y_i}{\partial w^2_{ij}}& 
+	= \frac{\partial y_i}{\partial net^{(2)}_i}\cdot \frac{\partial net^{(2)}_i}{\partial w^2_{ij}}
+	\\&= \sigma'(net^{(2)}_i)z_j\\
+	\frac{\partial L}{\partial w^2_{ij}}&=\frac{\partial L}{\partial y_i}\cdot \frac{\partial y_i}{\partial w^2_{ij}}\\&=\frac{\exp(y_i)}{\sum_i\exp(y_i)}\cdot \sigma'(net^{(2)}_i)z_j
+\end{aligned}
+$$
+
+When we update the parameters, some strategies are applied to get faster  trainning speed and better coverge point. Adam is one of the best optimizer to do this.
+
+Finally, after several times of traversing all dataset, i.e epochs, the loss of the training set and validation set stagnated at a lower point. And we take the parameter at the time to predict.
+
+\subsubsection{Algorithm implementation}
+
+We use Pytorch deep learning framework to build our model. There are several losses and optimizers to choose from. We take cross entropy loss and multi-margin loss and pass them to the model to get different results. And Adam is applied as the optimizer.
+
+The implementation follows the Pytorch lightning template\footnote{https://github.com/PyTorchLightning/deep-learning-project-template/blob/master/project/lit\_mnist.py}.
+
+\begin{lstlisting}[language=python,caption={MultiLayer Perceptron}]
+class LitClassifier(pl.LightningModule):
+	def __init__(self, loss, hidden_dim=128, learning_rate=1e-3):
+		super().__init__()
+		self.save_hyperparameters()
+		
+		self.l1 = torch.nn.Linear(28 * 28, self.hparams.hidden_dim)
+		self.l2 = torch.nn.Linear(self.hparams.hidden_dim, 10)
+
+	def forward(self, x):
+		x = x.view(x.size(0), -1)
+		x = torch.relu(self.l1(x))
+		x = torch.relu(self.l2(x))
+		return x
+
+	def training_step(self, batch, batch_idx):
+		x, y = batch
+		y_hat = self(x)
+		loss = self.hparams.loss(y_hat, y)
+		return loss
+
+	def validation_step(self, batch, batch_idx):
+		x, y = batch
+		y_hat = self(x)
+		loss = self.hparams.loss(y_hat, y)
+		y_hat = torch.argmax(y_hat, dim=1)
+		acc = pl.metrics.functional.classification.accuracy(y_hat,y)
+		self.log_dict({'val_loss': loss,'val_accuracy': acc})
+
+	def test_step(self, batch, batch_idx):
+		x, y = batch
+		y_hat = self(x)
+		loss = self.hparams.loss(y_hat, y)
+		y_hat = torch.argmax(y_hat, dim=1)
+		f1 = pl.metrics.functional.classification.f1_score(y_hat,y)
+		acc = pl.metrics.functional.classification.accuracy(y_hat,y)
+		self.log_dict({'test_loss': loss,'f1_score':f1 ,'accuracy': acc})
+
+	def configure_optimizers(self):
+		return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
+\end{lstlisting}
+
+
+\subsection{Convolutional Neural Networks}
+
+\subsubsection{Algorithm principle}
+
+Convolutional networks, also known as convolutional neural networks, or CNNs, are a specialized kind of neural network for processing data that has a known grid-like topology.\cite{goodfellow2016deeplearning}
+
+In its most general form, convolution is an operation on two functions of a real-valued argument. One is the input $x(t)$, and the other is the weight $w(a)$. If we apply such a weighted average operation at every position of $x$, we obtain a new function $s$ providing a smoothed estimate of the $x$.
+
+$$
+s(t)=(x*w)(t)=\int x(a)w(t-a)da
+$$
+
+This operation is called convolution. In convolutional network terminology, $w$ is referred as the kernel and $s$  as the feature map.
+
+Convolution leverages three important ideas that can help improve a machine learning system:sparse interactions, parameter sharing and equivariant representations.
+
+Unlike dense connected layers in Multi-layer Perceptron Neural Networks, the convolutional layers only have few parameters shared by all output nodes, and one input only interacts with near inputs. That greatly reduced the amount of parameters and introduce the prior of local correlation.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Convolutional Layer}
+	\includegraphics[width=0.4\textwidth]{img/conv_layer.png}
+\end{figure}
+
+A typical layer of a convolutional network consists of three stages .In the ﬁrst stage, the layer performs several convolutions in parallel to produce a set of linear activations. 
+
+$$
+\text{out} = \text{bias} + \sum \text{weight} * \text{input}
+$$
+
+In the second stage, each linear activation is run through a nonlinear activation function, such as the rectiﬁed linear activation function. This stage is sometimes called the detector stage. 
+
+$$
+\text{ReLU}(x)=(x)^+=\max(0,x)
+$$
+
+In the third stage, we use a pooling function to modify the output of the layer further.
+
+A pooling function replaces the output of the net at a certain location with a summary statistic of the nearby outputs.For example, the max pooling operation reports the maximum output within a rectangular neighborhood.
+
+In all cases, pooling helps to make the representation approximately invariant to small translations of the input. It can vary the layers' size and is proved to be very useful when attracting features.
+
+\subsubsection{Algorithm implementation}
+
+We applied the deep learning library \texttt{pytorch} to implement this algorithm. We chose the LeNet network mentioned in \cite{goodfellow2016deeplearning}. And it was proven to be effective on the MNIST dataset.
+
+LeNet is composed of 2 convolutional layers and 2 fully-connected layers. The output then goes through Softmax function and the loss is cross-entropy loss.
+
+\begin{lstlisting}[language=python,caption={LeNet}]
+class LeNet(nn.Module):
+    def __init__(self):
+        super(LeNet, self).__init__()
+        self.conv1 = nn.Conv2d(1, 6, 3, 1)
+        self.conv2 = nn.Conv2d(6, 16, 3, 1)
+        self.fc1 = nn.Linear(400, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = torch.tanh(x)
+        x = F.avg_pool2d(x, 2)
+        x = self.conv2(x)
+        x = torch.tanh(x)
+        x = F.avg_pool2d(x, 2)
+        x = torch.flatten(x, 1)
+        x = self.fc1(x)
+        x = self.fc2(x)
+        output = F.log_softmax(x, dim=1)
+        return output
+\end{lstlisting}
+
+\section{EXPERIMENTAL RESULTS AND ANALYSIS}
+
+\subsection{K-Nearest Neighbor}
+
+Now we get the model and the data,then we can start training and testing.We choosed different k for knn algorithm and run the prediction.The following graph shows the variation of accuracy between different k from 1 to 9.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Selection of k}
+	\includegraphics[width=0.5\textwidth]{selection_k}
+\end{figure}
+
+We can get from the graph that it’s not true that the bigger the k, the better the result. Among all the values of k, 3 get the best result and from 7 to 9 the accuracy is dropping as the k increases. Finally, the best result is the same as K-nearest-neighbors, Euclidean (L2) model with 3.09\% error rate from Kenneth Wilder, U. Chicago.\cite{lecun1998gradient}
+
+\subsection{Bayesian Decision}
+
+Now we get the model and the data,then we can start training and testing. We finally choosed $smooth = 1000$ in 0-255 gray scale space and get 0.815 on the monovariable model, and 0.8459 on the multivariable model.
+
+Moreover, we can look into accuracies in every digit class and plot the confusion matrix. The following is the confusion matrix of the result the multivariable model produce. Comparing to the average image in 3, we can find that the zero(0) is far different from other digit and get the highest accuracy but the distribution of one(1) is so similar to that of the eight(8) that many ones were mistaken as eight. The result matched our expectations.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Confusion Matrix}
+	\includegraphics[width=0.5\textwidth]{confusion_matrix}
+\end{figure}
+
+\subsection{SVM and MLP Analysis}
+
+We train different models on the same training set and test on the same test set but the sizes of training set differ because of too long training time for SVM models. 
+
+SVM need to solve optimization problem with precise method and one-vs-one strategy requires many SVM models built for every pair of classes. That cause huge repeated float calculation on CPU. Especially with a non-linear kernel like rbf, the training process lasts longer. So part of the training set is applied instead of the whole.
+
+\begin{table}[ht]
+	\caption{Comparison of SVM with different sizes of traing data}
+	\begin{tabular}{lllll}
+		Model &linear(10000)  	&linear(20000)		&linear(30000)&rbf(30000)\\
+		Time(s) & 11.2s &37.49&80.31&103.42\\
+		Accuracy& 0.9172 &0.9257&0.9348&0.9742\\
+		F1-score& 0.9158 &0.9245&0.9337&0.9740\\
+	\end{tabular}
+\end{table}
+
+For multilayer perceptron models, if the training set is too small, the model won't behave fairly well. Therefore we trained the perceptron models on the whole training set. As the MLP model requires sequential learning, i.e gradient descent, so it may take longer time to train and tune. We only trained 10 epochs on the whole training set accelerated by GPU.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Multiple Perceptron Validation Accuracy when training}
+	\includegraphics[width=0.5\textwidth]{ce_loss_val_acc}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Multiple Perceptron Validation Loss when training}
+	\includegraphics[width=0.5\textwidth]{ce_loss_val_loss}
+\end{figure}
+
+We can learn from the table that for SVM model, rbf kernel have better representation of the data than linear model. With small data set, SVM performs better and runs faster with even less data. 
+
+For multilayer perceptron models, the multi-margin loss have weak constraint for the classification, while cross entropy loss perform better. 
+
+\begin{table}[ht]
+	\caption{Comparison of accuracy of different models}
+	\begin{tabular}{lllll}
+		Model &Classification  	&Training Set		&Accuracy 	&F1-score\\
+		SVM(linear)& one-vs-one &30000&0.9348&0.9337\\
+		SVM(rbf)& one-vs-one &30000&0.9742&0.9740\\
+		MLP(ce)& multiclass &60000&0.8421&0.8417\\
+		MLP(margin)& multiclass &60000&0.6244&0.6230\\
+	\end{tabular}
+\end{table}
+
+\subsection{Convolutional Neural Networks}
+
+We train the model for 10 epochs optimized with Adadelta and  learning rate $0.5$. The accuracy and loss value thoughout training is at below. We finally achieved $98.3\%$ accuracy on the test set.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Accuracy on validation set}
+	\includegraphics[width=0.4\textwidth]{img/accuracy.png}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Loss on training set and  validation set}
+	\includegraphics[width=0.4\textwidth]{img/loss.png}
+\end{figure}
+
+CNN show its impressive ability to classify the image. With only 1 epoch, the model achieved $95\%$ accuracy on validation set. It outperforms other linear model like SVM and Perceptron with speed and result.
+
+\subsection{Comparison}
+
+\begin{figure*}[t]
+    \label{compare_img}
+	\centering
+	\caption{Comparison of different models}
+	\includegraphics[width=0.7\textwidth]{img/precision_recall.png}
+	\includegraphics[width=0.7\textwidth]{img/time_f1.png}
+\end{figure*}
+
+\begin{table*}[h]
+    \label{compare_table}
+	\caption{Comparison of different models}
+	\begin{tabular}{lllllllll}
+		No. &Model Type &Description &Training set &Training Time(s) &Testing Time(s) &Precision &Recall &F1-macro\\
+		1&K-Nearest Neighbor& k=2 &10000  &0.01 &84.64 &0.9358 &0.9324 &0.9327\\
+		2&K-Nearest Neighbor& k=2 &60000 &0.00 &520.16 &0.9635 &0.9621 &0.9623\\
+		3&Bayesian& Gaussian Mono-variable &60000 &1.12 &3.76 &0.8306 &0.8114 &0.8133\\
+        4&Bayesian& Gaussian Multi-variable &60000 &1.06 &12.54 &0.8706 &0.8478 &0.8498\\
+        5&SVM &Linear Kernel &10000 &17.50 &28.69 &0.9166 &0.9157 &0.9158\\
+        6&SVM &RBF Kernel &10000 &29.18 &43.16 &0.9593 &0.9590 &0.9590\\
+        7&MLPNN &epoch=10 Cross Entropy Loss&60000 &128.26(GPU) &0.04 &0.6839 &0.6077 &0.6250\\
+        8&MLPNN &epoch=10 Multi-margin Loss&60000 &124.02(GPU) &0.04 &0.6708 &0.5602 &0.5965\\
+        9&CNN &epoch=10 LeNet&60000 &112.50(GPU) &0.03 &0.9853 &0.9854 &0.9853\\
+	\end{tabular}
+\end{table*}
+
+We compared the models mentioned on time consumption, precision and recall performances, in table TABLE III and in figures Fig.12. We can learning several facts from the comparison.
+\begin{itemize}
+    \item Applying the whole training set was wasting time for simple models like kNN and SVM, as they perform excellently even with $1/6$ of the training set. 
+    \item Non-linear classifiers usually have better performance, such as RBF Kernel vs. Linear Kernel in SVM and Cross Entropy vs. Hinge Loss in MLPNN.
+    \item The metrics of MLPNN is unexpectedly bad. It's probably due to the weak ability of two-layer perceptron.
+    \item CNN has the highest f1 score and achieve almost $100\%$ in precision and recall. That means CNN's local pixel prior is effective.  
+\end{itemize}
+
+
+\bibliographystyle{plain}
+\bibliography{bare_jrnl_comsoc}
+
+\end{document}
+
+
